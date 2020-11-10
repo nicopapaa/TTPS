@@ -26,3 +26,5 @@ Route::get('/pacientes.list', [PagesController::class, 'lista']);
 Route::get('/pacientes.new', [PagesController::class, 'new']);
 
 Route::post('/addPaciente', [PagesController::class, 'addPaciente']);
+
+Route::get('/login', [PagesController::class, 'iniciar_sesion']);

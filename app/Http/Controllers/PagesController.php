@@ -12,6 +12,10 @@ class PagesController extends Controller
         return view('welcome', compact('pacientes'));
     }
 
+    public function iniciar_sesion(){
+        return view('auth.main-login');
+    }
+
     public function paciente(){
         $pacientes = Paciente::all();
         return view('pacientes.new', compact('pacientes'));
