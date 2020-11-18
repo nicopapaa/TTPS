@@ -16,15 +16,27 @@ class RolSeeder extends Seeder
     {
         $rol = Rol::create([
             'id'=>1,
-            'nombre'=>'Administrador'
+            'nombre'=>'Empleado'
         ]);
         $rol = Rol::create([
             'id'=>2,
-            'nombre'=>'Jefe de sistema'
+            'nombre'=>'Organizacion'
         ]);
         $rol = Rol::create([
             'id'=>3,
-            'nombre'=>'Medico'
+            'nombre'=>'Administrador'
+        ]);
+        $rol = Rol::create([
+            'id'=>4,
+            'nombre'=>'Responsable social'
+        ]);
+        $rol = Rol::create([
+            'id'=>5,
+            'nombre'=>'Responsable logístico'
+        ]);
+        $rol = Rol::create([
+            'id'=>6,
+            'nombre'=>'Voluntario'
         ]);
     }
 }

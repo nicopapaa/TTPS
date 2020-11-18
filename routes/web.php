@@ -28,3 +28,19 @@ Route::get('/pacientes.new', [PagesController::class, 'new']);
 Route::post('/addPaciente', [PagesController::class, 'addPaciente']);
 
 Route::get('/login', [PagesController::class, 'iniciar_sesion']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Auth::routes();
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
+    Route::resource('products','ProductController');
+});
