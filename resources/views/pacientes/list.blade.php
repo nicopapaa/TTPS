@@ -1,8 +1,6 @@
-@include('layout')
-@include('footer')
-@include('navbarAdmin')
+@extends('layouts.app')
 
-<br>
+@section('content')
 
 <h4>Listado de pacientes</h4>
 
@@ -48,4 +46,4 @@
   </table>
 
 
-
+@endsection
