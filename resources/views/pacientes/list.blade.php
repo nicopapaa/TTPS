@@ -21,10 +21,8 @@
             <td>{{$pacientes->apellido}}</td>
             <td>{{$pacientes->dni}}</td>
             <td>
-                <a>
-                    <button type="reset" class="btn btn-primary" style="background-color:#F0B8B8; border-color:#F0B8B8;">
+                <a class="btn btn-primary" href="{{ route('paciente.details',$pacientes) }}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
                         Ver datos
-                    </button>
                 </a>
             </td>
             <td>

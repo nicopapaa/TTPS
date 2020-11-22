@@ -27,6 +27,8 @@ Route::get('/sistema/{id}', [PagesController::class, 'sistema_show'])->name('sis
 
 Route::get('/pacientes.list', [PagesController::class, 'lista']);
 
+Route::get('/pacientes/{id}',[PagesController::class, 'paciente_details'])->name('paciente.details');
+
 Route::get('/pacientes.new', [PagesController::class, 'new']);
 
 Route::post('/addPaciente', [PagesController::class, 'addPaciente']);

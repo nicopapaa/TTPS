@@ -41,6 +41,12 @@ class PagesController extends Controller
         return view('sistemas.show', compact('sistema'));
     }
 
+    public function paciente_details($id){
+        $paciente = Paciente::findOrFail($id);
+
+        return view('pacientes.details', compact('paciente'));
+    }
+
     public function paciente_show(Request $dni){
         $dni = $dni->dni;
         $count = Paciente::where('dni', '=', $dni)->count();
