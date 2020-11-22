@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paciente;
+use App\Models\Sistema;
 
 class PagesController extends Controller
 {
@@ -27,6 +28,17 @@ class PagesController extends Controller
     public function buscar(){
         $pacientes = Paciente::all();
         return view('pacientes.find', compact('pacientes'));
+    }
+
+    public function sistema(){
+        $sistemas = Sistema::all();
+        return view('sistemas.list', compact('sistemas'));
+    }
+
+    public function sistema_show($id){
+        $sistema = Sistema::findOrFail($id);
+
+        return view('sistemas.show', compact('sistema'));
     }
 
     public function paciente_show(Request $dni){

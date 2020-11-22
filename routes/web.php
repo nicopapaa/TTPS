@@ -19,7 +19,11 @@ Route::get('/paciente', [PagesController::class, 'paciente']);
 
 Route::get('/buscar', [PagesController::class, 'buscar']);
 
+Route::get('/sistemas', [PagesController::class, 'sistema']);
+
 Route::post('/show', [PagesController::class, 'paciente_show'])->name('paciente.show');
+
+Route::get('/sistema/{id}', [PagesController::class, 'sistema_show'])->name('sistema.show');
 
 Route::get('/pacientes.list', [PagesController::class, 'lista']);
 
