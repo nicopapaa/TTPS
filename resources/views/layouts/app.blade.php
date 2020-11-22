@@ -54,7 +54,7 @@
                             <li><a class="navbar-brand" href="{{ url('/buscar')}}">Inicio</a></li>
                             <li><a class="navbar-brand" href="#">Medicos</a></li>
                             <li><a class="navbar-brand" href="{{ url('/pacientes.list') }}">Pacientes</a></li>
-                            <li><a class="navbar-brand" href="#">Sistemas</a></li>
+                            <li><a class="navbar-brand" href="{{ url('/sistemas')}}">Sistemas</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
