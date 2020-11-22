@@ -29,9 +29,13 @@ Route::get('/pacientes.list', [PagesController::class, 'lista']);
 
 Route::get('/pacientes/{id}',[PagesController::class, 'paciente_details'])->name('paciente.details');
 
+Route::get('/pacientes/evolucion/{id}',[PagesController::class, 'paciente_evolucion'])->name('paciente.evolucion');
+
 Route::get('/pacientes.new', [PagesController::class, 'new']);
 
 Route::post('/addPaciente', [PagesController::class, 'addPaciente']);
+
+Route::get('/paciente/{id}/cambiar/sistema', [PagesController::class , 'paciente_cambiar_sistema'])->name('paciente.cambiar_sistema');
 
 Route::get('/login', [PagesController::class, 'iniciar_sesion']);
 Auth::routes();

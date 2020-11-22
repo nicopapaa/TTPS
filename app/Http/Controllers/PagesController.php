@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paciente;
 use App\Models\Sistema;
+use App\Models\Relacion;
 
 class PagesController extends Controller
 {
@@ -45,6 +46,17 @@ class PagesController extends Controller
         $paciente = Paciente::findOrFail($id);
 
         return view('pacientes.details', compact('paciente'));
+    }
+
+    public function paciente_evolucion($id){
+        $paciente = Paciente::findOrFail($id);
+
+        return view('pacientes.evolucion', compact('paciente'));
+    }
+
+    public function paciente_cambiar_sistema($id){
+        $paciente = Paciente::findOrFail($id);
+        return view('pacientes.cambiar_sistema',compact('paciente'));
     }
 
     public function paciente_show(Request $dni){
