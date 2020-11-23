@@ -32,25 +32,25 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('123456')
         ]);
         $user2 = User::create([
-        'name' => 'Ejemplo Organizacion',
-        'email' => 'ejemplo@organizacion.com',
-        'apellido' => 'Org',
+        'name' => 'Nicolas',
+        'email' => 'nicopapaa@gmail.com',
+        'apellido' => 'Paparazzo',
         'dni' => 31785,
         'telefono' => 31785,
         'password' => bcrypt('123456')
         ]);
         $user3 = User::create([
-            'name' => 'Ejemplo Empleado',
-            'email' => 'ejemplo2@empleado.com',
-            'apellido' => 'empleado',
+            'name' => 'Matias',
+            'email' => 'mati@gmail.com',
+            'apellido' => 'DelleDonne',
             'dni' => 31785,
             'telefono' => 31785,
             'password' => bcrypt('123456')
         ]);  
         $user4 = User::create([
-            'name' => 'Ejemplo2 Organizacion',
-            'email' => 'ejemplo3@organizacion.com',
-            'apellido' => 'Org',
+            'name' => 'Gonzalo',
+            'email' => 'gonza@gmail.com',
+            'apellido' => 'Bilbao',
             'dni' => 31785,
             'telefono' => 31785,
             'password' => bcrypt('123456')

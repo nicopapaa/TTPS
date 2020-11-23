@@ -1,9 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
-
 <h4>Listado de pacientes</h4>
-
 <table class="table table-bordered" style="background-color:#FFFFFF;">
         <tr>
             <th scope="col">N° de paciente</th>
@@ -38,6 +35,4 @@
         </tr>
         @endforeach
   </table>
-
-
 @endsection
