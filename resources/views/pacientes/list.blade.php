@@ -21,24 +21,18 @@
             <td>{{$pacientes->apellido}}</td>
             <td>{{$pacientes->dni}}</td>
             <td>
-                <a>
-                    <button type="reset" class="btn btn-primary" style="background-color:#F0B8B8; border-color:#F0B8B8;">
+                <a class="btn btn-primary" href="{{ route('paciente.details',$pacientes) }}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
                         Ver datos
-                    </button>
                 </a>
             </td>
             <td>
-                <a>
-                    <button type="reset" class="btn btn-primary" style="background-color:#F0B8B8; border-color:#F0B8B8;">
-                        Hacer evolución
-                    </button>
+                <a class="btn btn-primary" href="{{ route('paciente.evolucion',$pacientes)}}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
+                        Hacer evolución          
                 </a>
             </td>
             <td>
-                <a>
-                    <button type="reset" class="btn btn-primary" style="background-color:#F0B8B8; border-color:#F0B8B8;">
+                <a class="btn btn-primary" href="{{ route('paciente.cambiar_sistema',$pacientes)}}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
                         Cambiar de sistema
-                    </button>
                 </a>
             </td>
         </tr>
