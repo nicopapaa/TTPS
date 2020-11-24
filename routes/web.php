@@ -62,5 +62,6 @@ Auth::routes();
 
     #Route user login
     Route::get('/users.show/{id}', [UserController::class, 'show']);
+    Route::get('/show/{id}',[UserController::class, 'show']);
 
 });
