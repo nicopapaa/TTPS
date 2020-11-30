@@ -51,7 +51,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 #Route Sistemas
 Route::get('/sistemas.index', [SistemaController::class, 'index']);
-
+Route::get('/sistemas/show/{id}', [SistemaController::class, 'show']);
 
 Auth::routes();
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
