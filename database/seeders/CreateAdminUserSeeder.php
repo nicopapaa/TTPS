@@ -123,11 +123,22 @@ class CreateAdminUserSeeder extends Seeder
             'telefono' => 31785,
             'password' => bcrypt('123456')
         ]);
+
+        #admin
+        $admin = User::create([
+            'name' => 'Claudio',
+            'email' => 'medico3@gmail.com',
+            'apellido' => 'Tapia',
+            'dni' => 31785,
+            'telefono' => 31785,
+            'password' => bcrypt('123456')
+        ]);
         
         #creo el rol jefe de sistema
         $roleJefe = Role::create(['name' => 'Jefe de sistema']);
-
-
+        $rolAdmin = Role::create(['name' => 'Administrador']);
+        $roleMedico=Role::create(['name' => 'Médico']);
+        
         #asigno role de jefes
         $jefe1 = assignRole([$roleJefe->id]);
         $jefe2 = assignRole([$roleJefe->id]);
@@ -137,8 +148,8 @@ class CreateAdminUserSeeder extends Seeder
 
 
 
-        $roleMedico=Role::create(['name' => 'Médico']);
-        $medico1->v
+        
+        $medico1->assignRole([$roleMedico->id]);
         $medico2->assignRole([$roleMedico->id]);
         $medico3->assignRole([$roleMedico->id]);
         $role=Role::create(['name' => 'Empleado']);
