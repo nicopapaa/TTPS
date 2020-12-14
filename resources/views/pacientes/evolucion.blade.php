@@ -25,8 +25,9 @@
     </div>
         <div class="column" style="background-color:#96D1CD; margin: 70px 0px 10px; padding: 60px;">
             <h2>Evolucion</h2>
-            <div class="form-group" style="margin: 70px 0px 10px; padding: 60px;">
-                <input type="string" placeholder="Describa la evolucion del paciente" style=" padding: 80px;" class="form-control" id="evolucion" name="evolucion" required>
+            <div class="form-group">
+                <p>Describa la evolucion del paciente:</p>
+                <textarea name="textarea" id="evolucion" name="evolucion" rows="10" cols="50" style="width:100%" required ></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
         </div>

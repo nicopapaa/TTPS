@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Paciente;
 use App\Models\Sistema;
 use App\Models\Relacion;
+use App\Models\Sistema_has_paciente;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 
 class PagesController extends Controller
 {
@@ -56,8 +59,16 @@ class PagesController extends Controller
 
     public function paciente_cambiar_sistema($id){
         $paciente = Paciente::findOrFail($id);
-        return view('pacientes.cambiar_sistema',compact('paciente'));
+        $sistema_actual = Sistema_has_paciente::where('id_user', '=', $id)->get();
+        
+        $sistema_datos = Sistema::where('id','=',$sistema_actual[0]->id_sistema)->paginate();
+        $sistema = Sistema::where('id','<>', $sistema_actual[0]->id_sistema)->get();
+        $param['paciente']=$paciente;
+        $param['sistema_actual']=$sistema_datos;
+        $param['sistema']=$sistema;
+        return view('pacientes.cambiar_sistema',$param);
     }
+
 
     public function paciente_show(Request $dni){
         $dni = $dni->dni;
