@@ -14,9 +14,9 @@
         <h6>Camas Totales: {{ $s->camas_totales }}</h6>
         <br>
         <p>
-        <a class="btn btn-primary" style="background-color:#B0FDDD; border-color:#B0FDDD; color:black;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Jefes de Sistema
-        </a>
+        <button class="btn btn-primary" style="background-color:#B0FDDD; border-color:#B0FDDD; color:black;" type="button" data-toggle="collapse" data-target="#jefe" aria-expanded="false" aria-controls="collapseExample">
+            Jefe
+        </button>
         <button class="btn btn-primary" style="background-color:#B0FDDD; border-color:#B0FDDD; color:black;" type="button" data-toggle="collapse" data-target="#paciente" aria-expanded="false" aria-controls="collapseExample">
             Pacientes
         </button>
@@ -79,6 +79,7 @@
         </div>
 
         <div class="collapse" id="jefe">
+        <h6>Jefe</h6>
             <div class="card card-body">
                 <table class="table table-bordered" style="background-color:#FFFFFF;">
                     <tr>
@@ -89,7 +90,7 @@
                         <th scope="col">Email</th>
 
                     </tr>
-                    @foreach($usuario as $v)
+                    @foreach($jefe as $v)
                     <tr>
                         <td>{{$v->name}}</td>
                         <td>{{$v->apellido}}</td>
