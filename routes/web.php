@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PacienteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,5 +65,14 @@ Auth::routes();
     #Route user login
     Route::get('/users.show/{id}', [UserController::class, 'show']);
     Route::get('/show/{id}',[UserController::class, 'show']);
+
+    #listado de medicos
+    Route::get('/medicos', [UserController::class, 'show_medicos']);
+
+    #actualizar camas
+    Route::post('/sistemas/update_camas', [SistemaController::class, 'update_camas']);
+
+    #medicos asignados
+    Route::get('/medicosAsignados/{id}', [PacienteController::class, 'medicosAsignados']);
 
 });

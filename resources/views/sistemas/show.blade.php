@@ -5,13 +5,20 @@
     <div class="col-sm">
     </div>
     <div class="colum">
-        <div style="background-color:#F0B8B8; margin: 70px 0px 10px; padding: 60px; width:900px;">
+        <div style="background-color:#F0B8B8; margin: 70px 0px 10px; padding: 60px; width:1100px;">
         @foreach($sistema as $s)
         <h3>Sistema:  {{ $s->nombre }} </h3>
         <br>
         <h6>Camas Usadas: {{ $s->camas_usadas }}</h6>
         <h6>Camas Libres: {{ $s->camas_totales -  $s->camas_usadas}}</h6>
         <h6>Camas Totales: {{ $s->camas_totales }}</h6>
+        <h6>Camas ocupadas: {{ $s->camas_usadas * 100 / $s->camas_totales }} % </h6>
+        <form class="form-inline" action="/sistemas/update_camas" method="post">
+        @csrf
+            <input type="text" class="form-control mr-sm-2" value="{{ $s->camas_totales }}" id="inlineFormInputName2" name="camas_totales">
+            <input type="text" class="form-control mr-sm-2" value="{{ $s->id }}" id="inlineFormInputName2" name="sistema" hidden="true">
+            <button type="submit" class="btn btn-primary my-1">Actualizar camas</button>
+        </form>
         <br>
         <p>
         <button class="btn btn-primary" style="background-color:#B0FDDD; border-color:#B0FDDD; color:black;" type="button" data-toggle="collapse" data-target="#jefe" aria-expanded="false" aria-controls="collapseExample">
@@ -26,7 +33,7 @@
         </p>
         <div class="collapse" id="paciente">
         <h6>Pacientes</h6>
-            <div class="card card-body">
+            <div class="card card-body" style="width:1000px;">
                 <table class="table table-bordered" style="background-color:#FFFFFF;">
                     <tr>
                         <th scope="col">Nombre</th>
@@ -36,7 +43,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Obra social</th>
-
+                        <th scope="col">-</th>
                     </tr>
                     @foreach($paciente as $p)
                     <tr>
@@ -47,6 +54,11 @@
                         <td>{{$p->mail}}</td>
                         <td>{{$p->obra_social}}</td>
                         <td>{{$p->direccion}}</td>
+                        <td>
+                            <a href="{{ url('/medicosAsignados/'.$p->id) }}"><button class="btn btn-primary" style="background-color:#B0FDDD; border-color:#B0FDDD; color:black;" type="button" data-toggle="collapse" data-target="#medicosasignados" aria-expanded="false" aria-controls="collapseExample">
+                                Medicos asignados
+                            </button></a>
+                        </td>
                     </tr>
                     @endforeach
                 </table>
@@ -63,7 +75,6 @@
                         <th scope="col">DNI</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Email</th>
-
                     </tr>
                     @foreach($usuario as $v)
                     <tr>
@@ -88,7 +99,6 @@
                         <th scope="col">DNI</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Email</th>
-
                     </tr>
                     @foreach($jefe as $v)
                     <tr>
@@ -101,6 +111,7 @@
                     @endforeach
                 </table>
             </div>
+        </div>
         </div>
 
         </div>

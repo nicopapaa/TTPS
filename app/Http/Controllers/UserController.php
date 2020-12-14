@@ -157,4 +157,11 @@ public function updatePassword(Request $request){
             'email' => 'required|unique:users,email'
         ];
     }
+
+    public function show_medicos()
+    {
+        $medicos = User::where('id', '>', '6')->get();
+        return view('/medicos.show', compact('medicos'));
+    }
 }
+

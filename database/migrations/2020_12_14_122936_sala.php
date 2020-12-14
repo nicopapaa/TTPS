@@ -4,19 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SistemasHasPaciente extends Migration
+class Sala extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+        public function up()
     {
-        Schema::create('sistema_has_pacientes', function (Blueprint $table) {
+        Schema::create('salas', function (Blueprint $table) {
             $table->id();
-            $table->String('id_sistema');
-            $table->String('id_user');
+            $table->String('nombre');
             $table->timestamps();
         });
     }
@@ -26,8 +25,4 @@ class SistemasHasPaciente extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('sistema_has_pacientes');
-    }
 }
