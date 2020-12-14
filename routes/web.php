@@ -74,5 +74,6 @@ Auth::routes();
 
     #medicos asignados
     Route::get('/medicosAsignados/{id}', [PacienteController::class, 'medicosAsignados']);
+    Route::post('/asignarMedicos', [PacienteController::class, 'asignarMedicos']);
 
 });

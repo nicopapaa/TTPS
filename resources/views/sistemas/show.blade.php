@@ -43,7 +43,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Obra social</th>
-                        <th scope="col">-</th>
+                        <th scope="col">&nbsp;</th>
                     </tr>
                     @foreach($paciente as $p)
                     <tr>
