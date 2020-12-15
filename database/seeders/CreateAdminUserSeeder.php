@@ -221,12 +221,14 @@ class CreateAdminUserSeeder extends Seeder
             'name' => 'Administrador'
         ]);
         #creo el rol jefe de sistema
-        $roleJefe = Role::create(['id' => 2,
-         'name' => 'Jefe de sistema'
+        $roleJefe = Role::create([
+            'id' => 2,
+            'name' => 'Jefe de sistema'
          ]);
         #creo el rol jefe de Medico
-        $roleMedico = Role::create(['id' => 3,
-        'name' => 'Médico'
+        $roleMedico = Role::create([
+            'id' => 3,
+            'name' => 'Médico'
         ]);
 
         #asigno role de jefes

@@ -76,4 +76,7 @@ Auth::routes();
     Route::get('/medicosAsignados/{id}', [PacienteController::class, 'medicosAsignados']);
     Route::post('/asignarMedicos', [PacienteController::class, 'asignarMedicos']);
 
+    #cambiar de sistemas
+    Route::post('/cambiarSistema', [PacienteController::class, 'cambiarSistema']);
+
 });

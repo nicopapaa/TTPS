@@ -8,6 +8,7 @@ use App\Models\Sistema;
 use App\Models\Relacion;
 use App\Models\User;
 use App\Models\Medico_has_paciente;
+use App\Models\Sistema_has_paciente;
 use Illuminate\Support\Facades\DB;
 class PacienteController extends Controller
 {
@@ -69,4 +70,13 @@ class PacienteController extends Controller
         return view('pacientes.medicosAsignados',$param);
     }
 
+    public function cambiarSistema(Request $request){
+        $datos=request()->except('_token','_method');
+        $sistemaActual = $datos['sistema_actual'];
+        $sistema=$datos['id_sistema'];
+        $paciente=$datos['id_user'];
+        $datos=request()->except('_token','_method','sistema_actual','id_user');
+        Sistema_has_paciente::where('id_sistema','=',$sistemaActual)->where('id_user','=',$paciente)->update($datos);
+        return view('pacientes.list',['paciente' => Paciente::all()]);
+    }
 }
