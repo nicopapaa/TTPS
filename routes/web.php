@@ -30,6 +30,8 @@ Route::post('/show', [PagesController::class, 'paciente_show'])->name('paciente.
 Route::get('/sistema/{id}', [PagesController::class, 'sistema_show'])->name('sistema.show');
 
 Route::get('/pacientes.list', [PagesController::class, 'lista']);
+Route::get('/pacientesInternados.list', [PagesController::class, 'internados']);
+
 
 Route::get('/pacientes/{id}',[PagesController::class, 'paciente_details'])->name('paciente.details');
 
@@ -80,6 +82,7 @@ Auth::routes();
     Route::post('/cambiarSistema', [PacienteController::class, 'cambiarSistema']);
 
     #internacion
+    Route::get('/internacion.list', [InternacionController::class, 'listado']);
     Route::post('/altaInternacion', [InternacionController::class, 'altaInternacion']);
 
 

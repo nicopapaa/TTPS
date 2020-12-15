@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Paciente;
 use App\Models\Sistema;
 use App\Models\Relacion;
+use App\Models\Internacions;
 use App\Models\Sistema_has_paciente;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
+use DB;
 
 class PagesController extends Controller
 {
@@ -27,6 +28,14 @@ class PagesController extends Controller
     }
     public function lista(){
         return view('pacientes.list',['paciente' => Paciente::all()]);
+    }
+
+    public function internados(){
+        $paciente = DB::table('pacientes')
+            ->Join('internacions', 'pacientes.id', '=', 'internacions.id_paciente')
+            ->select('pacientes.*')
+            ->get();
+        return view('pacientes.internadolist',compact('paciente'));
     }
 
     public function buscar(){
@@ -60,7 +69,7 @@ class PagesController extends Controller
     public function paciente_cambiar_sistema($id){
         $paciente = Paciente::findOrFail($id);
         $sistema_actual = Sistema_has_paciente::where('id_user', '=', $id)->get();
-        
+
         $sistema_datos = Sistema::where('id','=',$sistema_actual[0]->id_sistema)->paginate();
         $sistema = Sistema::where('id','<>', $sistema_actual[0]->id_sistema)->get();
         $param['paciente']=$paciente;

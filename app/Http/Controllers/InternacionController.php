@@ -19,6 +19,11 @@ class InternacionController extends Controller
         return view('pacientes.find');
     }
 
+    public function listado(){
+        $internaciones = Internacions::all();
+        return view('internacion.list', compact('internaciones'));
+    }
+
     public function paciente_show(Request $dni){
         $dni = $dni->dni;
         $count = Paciente::where('dni', '=', $dni)->count();
