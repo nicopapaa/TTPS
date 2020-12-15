@@ -51,7 +51,7 @@
                             @endif
                         @else
                             <li><a class="navbar-brand" href="{{ url('/buscar')}}">Buscar paciente</a></li>
-                            <li><a class="navbar-brand" href="{{ url('/internacion.list')}}">Internaciones</a></li>
+                            <!--<li><a class="navbar-brand" href="{{ url('/internacion.list')}}">Internaciones</a></li>-->
                             <li><a class="navbar-brand" href="{{ url('/medicos') }}">Medicos</a></li><li class="nav-item dropdown">
                                 <a class="navbar-brand dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Pacientes

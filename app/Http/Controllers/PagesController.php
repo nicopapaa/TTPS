@@ -56,7 +56,6 @@ class PagesController extends Controller
 
     public function paciente_details($id){
         $paciente = Paciente::findOrFail($id);
-
         return view('pacientes.details', compact('paciente'));
     }
 
@@ -99,6 +98,11 @@ class PagesController extends Controller
         $datos=request()->except('_token');
         Paciente::insert($datos);
         return view('pacientes.find');
+    }
+
+    public function datos($id){
+        $paciente = Paciente::findOrFail($id);
+        return view('pacientes.pacienteInternado', compact('paciente'));
     }
 
 }

@@ -41,8 +41,6 @@ Route::get('/pacientes.new', [PagesController::class, 'new']);
 
 Route::post('/addPaciente', [PagesController::class, 'addPaciente']);
 
-Route::get('/paciente/{id}/cambiar/sistema', [PagesController::class , 'paciente_cambiar_sistema'])->name('paciente.cambiar_sistema');
-
 Route::get('/login', [PagesController::class, 'iniciar_sesion']);
 Auth::routes();
 
@@ -79,11 +77,13 @@ Auth::routes();
     Route::post('/asignarMedicos', [PacienteController::class, 'asignarMedicos']);
 
     #cambiar de sistemas
+    Route::get('/cambiarSistema/{id}', [PagesController::class , 'paciente_cambiar_sistema'])->name('paciente.cambiar_sistema');
     Route::post('/cambiarSistema', [PacienteController::class, 'cambiarSistema']);
 
     #internacion
     Route::get('/internacion.list', [InternacionController::class, 'listado']);
     Route::post('/altaInternacion', [InternacionController::class, 'altaInternacion']);
-
+    Route::get('/pacienteInternado/{id}', [PagesController::class, 'datos']);
+    Route::get('/evolucion/{id}', [InternacionController::class, 'evolucion']);
 
 });

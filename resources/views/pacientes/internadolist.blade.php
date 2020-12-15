@@ -18,17 +18,17 @@
             <td>{{$pacientes->apellido}}</td>
             <td>{{$pacientes->dni}}</td>
             <td>
-                <a class="btn btn-primary" href="" style="background-color:#F0B8B8; border-color:#F0B8B8;">
+                <a class="btn btn-primary" href="{{ url('/pacienteInternado/'.$pacientes->id)}}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
                         Ver datos
                 </a>
             </td>
             <td>
-                <a class="btn btn-primary" href="" style="background-color:#F0B8B8; border-color:#F0B8B8;">
+                <a class="btn btn-primary" href="{{ url('/evolucion/'.$pacientes->id)}}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
                         Hacer evolución
                 </a>
             </td>
             <td>
-                <a class="btn btn-primary" href="" style="background-color:#F0B8B8; border-color:#F0B8B8;">
+                <a class="btn btn-primary" href="{{ url('/cambiarSistema/'.$pacientes->id)}}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
                         Cambiar de sistema
                 </a>
             </td>

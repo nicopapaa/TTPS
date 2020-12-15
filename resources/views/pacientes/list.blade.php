@@ -8,8 +8,6 @@
             <th scope="col">Apellido</th>
             <th scope="col">DNI</th>
             <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
         </tr>
         @foreach ($paciente as $pacientes)
         <tr>
@@ -22,6 +20,7 @@
                         Ver datos
                 </a>
             </td>
+            <!--
             <td>
                 <a class="btn btn-primary" href="{{ route('paciente.evolucion',$pacientes)}}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
                         Hacer evolución
@@ -32,6 +31,7 @@
                         Cambiar de sistema
                 </a>
             </td>
+            -->
         </tr>
         @endforeach
   </table>

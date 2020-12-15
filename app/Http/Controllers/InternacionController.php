@@ -46,4 +46,7 @@ class InternacionController extends Controller
         return view('pacientes.find');
     }
 
+    public function evolucion(){
+        return ('evolucion');
+    }
 }

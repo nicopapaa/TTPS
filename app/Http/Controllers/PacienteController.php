@@ -77,6 +77,10 @@ class PacienteController extends Controller
         $paciente=$datos['id_user'];
         $datos=request()->except('_token','_method','sistema_actual','id_user');
         Sistema_has_paciente::where('id_sistema','=',$sistemaActual)->where('id_user','=',$paciente)->update($datos);
-        return view('pacientes.list',['paciente' => Paciente::all()]);
+        return view('pacientes.internadolist',['paciente' => DB::table('pacientes')
+        ->Join('internacions', 'pacientes.id', '=', 'internacions.id_paciente')
+        ->select('pacientes.*')
+        ->get()]);
     }
 }
+
