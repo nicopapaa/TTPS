@@ -33,6 +33,27 @@
         else{
             document.getElementsByName("valor_tromboprofilaxis")[0].disabled = true;
         }
+
+        if(document.getElementsByName("dialisis")[0].checked){
+            document.getElementsByName("valor_dialisis")[0].disabled = false;
+        }
+        else{
+            document.getElementsByName("valor_dialisis")[0].disabled = true;
+        }
+
+        if(document.getElementsByName("gastrica")[0].checked){
+            document.getElementsByName("valor_gastrica")[0].disabled = false;
+        }
+        else{
+            document.getElementsByName("valor_gastrica")[0].disabled = true;
+        }
+
+        if(document.getElementsByName("dexamentasona")[0].checked){
+            document.getElementsByName("valor_dexamentasona")[0].disabled = false;
+        }
+        else{
+            document.getElementsByName("valor_dexamentasona")[0].disabled = true;
+        }
     }
 
 </script>
@@ -44,23 +65,23 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Temperatura</label>
-            <input type="number" class="form-control" id="inputEmail4" name="temperatura">
+            <input type="number" class="form-control" id="temperatura" name="temperatura">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">TA sistolica</label>
-            <input type="number" class="form-control" id="inputPassword4" name="sistolica">
+            <input type="number" class="form-control" id="sistolica" name="sistolica">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">TA distolica</label>
-            <input type="number" class="form-control" id="inputPassword4" name="distolica">
+            <input type="number" class="form-control" id="distolica" name="distolica">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">Frecuencia cardiaca</label>
-            <input type="number" class="form-control" id="inputPassword4" name="frecuencia_cardiaca">
+            <input type="number" class="form-control" id="frecuencia_cardiaca" name="frecuencia_cardiaca">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">Frecuencia respiratoria</label>
-            <input type="number" class="form-control" id="inputPassword4" name="frecuencia_respiratoria">
+            <input type="number" class="form-control" id="frecuencia_respiratoria" name="frecuencia_respiratoria">
         </div>
     </div>
 </div>
@@ -69,7 +90,7 @@
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="inputState">Mecanica respiratoria</label>
-            <select id="inputState" class="form-control" name="mecanica">
+            <select id="inputState" class="form-control" name="mecanica" id="mecanica">
                 <option selected>Selecionar</option>
                 <option value="1">Buena</option>
                 <option value="2">Regular</option>
@@ -78,8 +99,8 @@
         </div>
     </div>
     <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitch1" onchange="javascript:validar();" name="oxigeno">
-        <label class="custom-control-label" for="customSwitch1">Requiere oxigeno</label>
+        <input type="checkbox" class="custom-control-input" id="oxigeno" name="oxigeno" onchange="javascript:validar();">
+        <label class="custom-control-label" for="oxigeno">Requiere oxigeno</label>
     </div>
     <br>
 
@@ -87,7 +108,7 @@
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="inputState">Tipo oxigeno</label>
-            <select id="inputState" class="form-control" name="tipo_oxigeno" disabled="true">
+            <select id="inputState" class="form-control" id="tipo_oxigeno" name="tipo_oxigeno" disabled="true">
                 <option selected>Selecionar</option>
                 <option>Canula nasal de oxigeno</option>
                 <option>Mascara con reservorio</option>
@@ -96,43 +117,43 @@
 
         <div class="form-group col-md-6">
             <label for="inputPassword4">Valor</label>
-            <input type="number" class="form-control" id="inputPassword4" name="valor_oxigeno" disabled="true">
+            <input type="number" class="form-control" id="valor_oxigeno" name="valor_oxigeno" disabled="true">
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="pafi" disabled="true">
-            <label class="custom-control-label" for="customSwitch1">Pafi</label>
+            <input type="checkbox" class="custom-control-input" id="pafi" name="pafi" disabled="true">
+            <label class="custom-control-label" for="pafi">Pafi</label>
         </div>
     </div>
         <div class="form-group col-md-4">
             <label for="inputPassword4">Valor pafi</label>
-            <input type="number" class="form-control" id="inputPassword4" name="valor_pafi" disabled="true">
+            <input type="number" class="form-control" id="valor_pafi" name="valor_pafi" disabled="true">
         </div>
 
 
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="prono" disabled="true">
-            <label class="custom-control-label" for="customSwitch1">Prono</label>
+            <input type="checkbox" class="custom-control-input" id="prono" name="prono" disabled="true">
+            <label class="custom-control-label" for="prono">Prono</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="tos" disabled="true">
-            <label class="custom-control-label" for="customSwitch1">Tos</label>
+            <input type="checkbox" class="custom-control-input" id="tos" name="tos" disabled="true">
+            <label class="custom-control-label" for="tos">Tos</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="disnea" disabled="true">
-            <label class="custom-control-label" for="customSwitch1">Disnea</label>
+            <input type="checkbox" class="custom-control-input" id="disnea" name="disnea" disabled="true">
+            <label class="custom-control-label" for="disnea">Disnea</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="estabilidad" disabled="true">
-            <label class="custom-control-label" for="customSwitch1">Estabilidad/Desaparicion de sintomas</label>
+            <input type="checkbox" class="custom-control-input" id="estabilidad" name="estabilidad" disabled="true">
+            <label class="custom-control-label" for="estabilidad">Estabilidad/Desaparicion de sintomas</label>
         </div>
     </div>
 </div>
@@ -142,19 +163,19 @@
     <div class="form-row">
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="somnolencia" name="somnolencia">
-                <label class="custom-control-label" for="customSwitch1">Somnolencia</label>
+                <label class="custom-control-label" for="somnolencia">Somnolencia</label>
             </div>
         </div>
         <div class="form-row">
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="anosmia" name="anosmia">
-                <label class="custom-control-label" for="customSwitch1">Anosmia</label>
+                <label class="custom-control-label" for="anosmia">Anosmia</label>
             </div>
         </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input" id="disgeusia" name="disgeusia">
-            <label class="custom-control-label" for="customSwitch1">Disgeusia</label>
+            <label class="custom-control-label" for="disgeusia">Disgeusia</label>
         </div>
     </div>
 </div>
@@ -163,32 +184,32 @@
 <h5 style="text-align:center;"><B>ESTUDIOS EN EL DIA DE HOY</B></h5>
     <div class="form-row">
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="somnolencia" name="rxtx">
-                <label class="custom-control-label" for="customSwitch1">RxTx</label>
+                <input type="checkbox" class="custom-control-input" id="rxtx" name="rxtx">
+                <label class="custom-control-label" for="rxtx">RxTx</label>
             </div>
         </div>
         <div class="form-row">
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="anosmia" name="tac">
-                <label class="custom-control-label" for="customSwitch1">Tac de torax</label>
+                <input type="checkbox" class="custom-control-input" id="tac" name="tac">
+                <label class="custom-control-label" for="tac">Tac de torax</label>
             </div>
         </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="disgeusia" name="ecg">
-            <label class="custom-control-label" for="customSwitch1">ECG</label>
+            <input type="checkbox" class="custom-control-input" id="ecg" name="ecg">
+            <label class="custom-control-label" for="ecg">ECG</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="disgeusia" name="prc">
-            <label class="custom-control-label" for="customSwitch1">PCR COVID</label>
+            <input type="checkbox" class="custom-control-input" id="prc" name="prc">
+            <label class="custom-control-label" for="prc">PCR COVID</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="disgeusia" name="laboratorio">
-            <label class="custom-control-label" for="customSwitch1">Laboratorio</label>
+            <input type="checkbox" class="custom-control-input" id="laboratorio" name="laboratorio">
+            <label class="custom-control-label" for="laboratorio">Laboratorio</label>
         </div>
     </div>
 </div>
@@ -199,7 +220,7 @@
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="inputState">Tipo de alimentación</label>
-            <select id="inputState" class="form-control" name="tipo_alimentacio">
+            <select id="inputState" class="form-control" name="tipo_alimentacion" id="tipo_alimentacion">
                 <option selected>Selecionar</option>
                 <option value="1">Oral</option>
                 <option value="2">Enteral</option>
@@ -208,7 +229,8 @@
         </div>
     </div>
     <div class="custom-control">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="nota_alimentacio"></textarea>
+        <label for="inputPassword4">Nota alimentaria</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" id="nota_alimentacion" name="nota_alimentacion"></textarea>
     </div>
     <br>
 
@@ -216,15 +238,15 @@
     <div class="form-row">
         <div class="form-group col-md-3">
             <label for="inputPassword4">Farmaco</label>
-            <input type="number" class="form-control" id="inputPassword4" name="farmaco" disabled="true">
+            <input type="number" class="form-control" id="farmaco" name="farmaco">
         </div>
         <div class="form-group col-md-3">
             <label for="inputPassword4">Dosis</label>
-            <input type="number" class="form-control" id="inputPassword4" name="dosis" disabled="true">
+            <input type="number" class="form-control" id="dosis" name="dosis">
         </div>
         <div class="form-group col-md-3">
             <label for="inputPassword4">Numero de dias</label>
-            <input type="number" class="form-control" id="inputPassword4" name="dias" disabled="true">
+            <input type="number" class="form-control" id="dias" name="dias">
         </div>
     </div>
     <div class="form-row">
@@ -240,8 +262,8 @@
 
         <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="dialisis">
-            <label class="custom-control-label" for="customSwitch1">Dialisis</label>
+            <input type="checkbox" class="custom-control-input" id="dialisis" name="dialisis" onchange="javascript:validar_parte_cinco();">
+            <label class="custom-control-label" for="dialisis">Dialisis</label>
         </div>
     </div>
         <div class="form-group col-md-4">
@@ -251,8 +273,8 @@
 
         <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="gastrica">
-            <label class="custom-control-label" for="customSwitch1">Proteccion gastrica</label>
+            <input type="checkbox" class="custom-control-input" id="gastrica" name="gastrica" onchange="javascript:validar_parte_cinco();">
+            <label class="custom-control-label" for="gastrica">Proteccion gastrica</label>
         </div>
     </div>
         <div class="form-group col-md-4">
@@ -262,8 +284,8 @@
 
         <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="pafi">
-            <label class="custom-control-label" for="customSwitch1">Dexamentasona</label>
+            <input type="checkbox" class="custom-control-input" id="dexamentasona" name="dexamentasona" onchange="javascript:validar_parte_cinco();">
+            <label class="custom-control-label" for="dexamentasona">Dexamentasona</label>
         </div>
     </div>
         <div class="form-group col-md-4">
