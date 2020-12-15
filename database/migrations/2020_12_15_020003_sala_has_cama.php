@@ -4,19 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Sala extends Migration
+class SalaHasCama extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-        public function up()
+    public function up()
     {
-        Schema::create('salas', function (Blueprint $table) {
+        Schema::create('sala_has_camas', function (Blueprint $table) {
             $table->id();
-            $table->String('nombre');
-            $table->String('camas');
+            $table->String('id_sala');
+            $table->String('id_cama');
         });
     }
 
@@ -25,4 +25,8 @@ class Sala extends Migration
      *
      * @return void
      */
+    public function down()
+    {
+        //
+    }
 }
