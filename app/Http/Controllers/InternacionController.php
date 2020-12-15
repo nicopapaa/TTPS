@@ -47,6 +47,6 @@ class InternacionController extends Controller
     }
 
     public function evolucion(){
-        return ('evolucion');
+        return view('pacientes.evolucion');
     }
 }

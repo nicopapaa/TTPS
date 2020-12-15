@@ -86,4 +86,8 @@ Auth::routes();
     Route::get('/pacienteInternado/{id}', [PagesController::class, 'datos']);
     Route::get('/evolucion/{id}', [InternacionController::class, 'evolucion']);
 
+    #evolucion
+    Route::post('/cargarEvolucion', [EvolucionController::class, 'cargarEvolucion']);
+
+
 });
