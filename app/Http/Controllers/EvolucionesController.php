@@ -11,9 +11,9 @@ use App\Models\Sistema_has_paciente;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use DB;
 
-class PagesController extends Controller
+class EvolucionesController extends Controller
 {
-    public function evoluciones(Resquest $request){
+    public function cargarEvolucion(Request $request){
         return $request;
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\InternacionController;
+use App\Http\Controllers\EvolucionesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,7 +88,7 @@ Auth::routes();
     Route::get('/evolucion/{id}', [InternacionController::class, 'evolucion']);
 
     #evolucion
-    Route::post('/cargarEvolucion', [EvolucionController::class, 'cargarEvolucion']);
+    Route::post('/cargarEvolucion', [EvolucionesController::class, 'cargarEvolucion']);
 
 
 });

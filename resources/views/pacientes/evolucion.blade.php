@@ -37,6 +37,7 @@
 
 </script>
 <form method="post" action="/cargarEvolucion">
+@csrf
 <h3>Evolución del paciente</h3>
 <div name="form" style="margin:50px; background-color:white; padding:30px;">
     <h5 style="text-align:center;"><B>SIGNOS VITALES</B></h5>
@@ -277,9 +278,7 @@
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="observaciones"></textarea>
     </div>
 </div>
-
-</div>
-<button type="sumbit">Cargar evolución</button>
+<button type="submit" class="btn btn-primary">Cargar evolución</button>
 </form>
 
 @endsection
