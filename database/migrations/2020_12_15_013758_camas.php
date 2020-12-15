@@ -16,7 +16,8 @@ class Camas extends Migration
         Schema::create('camas', function (Blueprint $table) {
             $table->id();
             $table->String('nombre');
-            $table->String('ocupada');
+            $table->Boolean('ocupada');
+            $table->timestamps();
         });
     }
 

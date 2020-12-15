@@ -5,7 +5,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PacienteController;
-
+use App\Http\Controllers\InternacionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,5 +78,9 @@ Auth::routes();
 
     #cambiar de sistemas
     Route::post('/cambiarSistema', [PacienteController::class, 'cambiarSistema']);
+
+    #internacion
+    Route::post('/altaInternacion', [InternacionController::class, 'altaInternacion']);
+
 
 });

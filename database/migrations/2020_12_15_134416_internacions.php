@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SistemaHasSalas extends Migration
+class Internacions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class SistemaHasSalas extends Migration
      */
     public function up()
     {
-        Schema::create('sistema_has_salas', function (Blueprint $table) {
+        Schema::create('internacions', function (Blueprint $table) {
             $table->id();
-            $table->String('id_sistema');
-            $table->String('id_sala');
+            $table->String('id_paciente');
+            $table->date('f_inicio_sintomas');
+            $table->date('f_diagnostico');
+            $table->String('descripcion');
+            $table->date('f_internacion');
+            $table->date('f_egreso')->nullable();
+            $table->date('f_obito')->nullable();
             $table->timestamps();
         });
     }

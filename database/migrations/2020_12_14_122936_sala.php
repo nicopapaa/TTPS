@@ -17,6 +17,7 @@ class Sala extends Migration
             $table->id();
             $table->String('nombre');
             $table->String('camas');
+            $table->timestamps();
         });
     }
 
