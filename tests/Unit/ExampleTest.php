@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use App\Models\Somnolencia;
 
 class ExampleTest extends TestCase
 {
@@ -13,6 +14,12 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+        $obj = new Somnolencia();
+        $response = $obj->validar(1);
+        $this->assertEquals(true,$response);
+
+        $obj = new Somnolencia();
+        $response = $obj->validar(0);
+        $this->assertEquals(false,$response);
     }
 }

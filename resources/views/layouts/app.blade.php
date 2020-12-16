@@ -13,6 +13,10 @@ use App\Http\Controllers\AlertasController;
 
     <title>{{ config('app.name', 'SeCo') }}</title>
 
+    <!-- Modal -->
+    <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -102,6 +106,8 @@ use App\Http\Controllers\AlertasController;
                     </ul>
                 </div>
             </div>
+            <div id="panelsucces">{{ session('success') }}</div>
+  <div id="panelerror">{{ session('error') }}</div>
         </nav>
 
         <main class="py-4">
@@ -110,3 +116,32 @@ use App\Http\Controllers\AlertasController;
     </div>
 </body>
 </html>
+<style>
+#panelsucces {
+  padding: 10px;
+  display: none;
+  text-align: center;
+  background-color: #333333;
+  color:#ffffff;
+  font-size:20px;
+}
+#panelerror {
+  padding: 10px;
+  display: none;
+  text-align: center;
+  background-color: red;
+  color:#ffffff;
+  font-size:18px;
+}
+</style>
+
+<script>
+@if(Session::has('success'))
+    $("#panelsucces").show(1000).delay(3000);
+    $("#panelsucces").hide(2000);
+@endif;
+@if(Session::has('error'))
+    $("#panelerror").show(1000).delay(3000);
+    $("#panelerror").hide(2000);
+@endif;
+</script>

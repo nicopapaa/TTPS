@@ -15,6 +15,9 @@ use App\Models\Alertas_historial;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use DB;
 use Carbon\Carbon;
+use app\Evolucion\Person;
+use App\Models\Somnolencia;
+
 
 
 class EvolucionesController extends Controller
@@ -23,11 +26,16 @@ class EvolucionesController extends Controller
         $datos=request()->except('_token');
 
 
+
         #return count($saturacion);
         Evoluciones::insert($datos);
 
         #REGLA 1 - SOMNOLENCIA
         if(isset($datos['somnolencia'])){
+
+            $obj = new Somnolencia();
+            $result_obj = $obj->validar($datos['somnolencia']);
+            return $result_obj;
 
             #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
             $paciente = $datos['id_paciente'];

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Paciente;
 use App\Models\Sistema;
 use App\Models\Relacion;
@@ -105,4 +106,10 @@ class PagesController extends Controller
         return view('pacientes.pacienteInternado', compact('paciente'));
     }
 
+    public function modal(){
+        $id=1;
+        $paciente = Paciente::findOrFail($id);
+
+        return redirect('pacienteInternado')->with('success', 'La solicitud fue aceptada correctamente');
+    }
 }

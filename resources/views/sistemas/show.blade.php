@@ -33,6 +33,10 @@
         </p>
         <div class="collapse" id="paciente">
         <h6>Pacientes</h6>
+        @if($paciente == 0)
+                        No tengo paciente
+
+                    @else
             <div class="card card-body" style="width:1000px;">
                 <table class="table table-bordered" style="background-color:#FFFFFF;">
                     <tr>
@@ -45,6 +49,7 @@
                         <th scope="col">Obra social</th>
                         <th scope="col">&nbsp;</th>
                     </tr>
+
                     @foreach($paciente as $p)
                     <tr>
                         <td>{{$p->nombre}}</td>
@@ -61,6 +66,7 @@
                         </td>
                     </tr>
                     @endforeach
+                    @endif
                 </table>
             </div>
         </div>

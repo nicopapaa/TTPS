@@ -25,6 +25,9 @@ class PacienteController extends Controller
                 $i++;
             }
         }
+        else{
+            $medicos = 0;
+        }
 
         #$users1 = DB::table('medico_has_pacientes')
          #   ->leftjoin('users', 'medico_has_pacientes.id_medico', '=', 'users.id')

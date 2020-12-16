@@ -18,6 +18,7 @@ use App\Http\Controllers\AlertasController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/modal', [PagesController::class, 'modal']);
 
 Route::get('/', [PagesController::class, 'inicio']);
 

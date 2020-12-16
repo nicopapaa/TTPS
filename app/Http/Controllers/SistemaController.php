@@ -30,15 +30,21 @@ class SistemaController extends Controller
 
         #pacientes del sistema
         $sistemapaciente['datos'] = Sistema_has_paciente::where('id_sistema','=',$id_sistema)->get();
+        #return $sistemapaciente;
 
         if (!is_null($sistemapaciente['datos'])){
             $count = count($sistemapaciente['datos']);
-            $i = 0;
-            while($i < $count){
-                $paciente[$i] = Paciente::find($sistemapaciente['datos'][$i]->id_user);
-                $i++;
+            if($count > 0){
+                $i = 0;
+                while($i < $count){
+                    $paciente[$i] = Paciente::find($sistemapaciente['datos'][$i]->id_user);
+                    $i++;
+                }
             }
-        }
+            else{
+                $paciente = 0;
+            }
+    }
 
         if (!is_null($sistemajefe['datos'])){
             $count = count($sistemajefe['datos']);
