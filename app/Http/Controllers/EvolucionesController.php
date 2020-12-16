@@ -15,8 +15,7 @@ use App\Models\Alertas_historial;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use DB;
 use Carbon\Carbon;
-use app\Evolucion\Person;
-use App\Models\Somnolencia;
+use App\Models\Evaluacion;
 
 
 
@@ -29,42 +28,43 @@ class EvolucionesController extends Controller
 
         #return count($saturacion);
         Evoluciones::insert($datos);
+        $obj = new Evaluacion();
 
         #REGLA 1 - SOMNOLENCIA
         if(isset($datos['somnolencia'])){
-
-            $obj = new Somnolencia();
             $result_obj = $obj->validar($datos['somnolencia']);
-            return $result_obj;
+            if($result_obj == true){
 
-            #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
-            $paciente = $datos['id_paciente'];
-            $medicos = Medico_has_paciente::select('id_medico')->where('id_paciente','=', $paciente)->get();
-            $i=0;
-            while($i < count($medicos)){
-                $medicoActual = $medicos[$i]['id_medico'];
+                #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
+                $paciente = $datos['id_paciente'];
+                $medicos = Medico_has_paciente::select('id_medico')->where('id_paciente','=', $paciente)->get();
+                $i=0;
+                while($i < count($medicos)){
+                    $medicoActual = $medicos[$i]['id_medico'];
 
-                #genero alerta para todos los medicos del paciente
-                Alertas::create([
+                    #genero alerta para todos los medicos del paciente
+                    Alertas::create([
+                        'id_paciente' => $datos['id_paciente'],
+                        'id_medico' => $medicoActual,
+                        'comentario' => 'Somnolencia: Evaluar pase a UTI.',
+                        'fecha' => (new DateTime('now')),
+                        'leida' => 0
+                    ]);
+                    $i=$i+1;
+                }
+                Alertas_historial::create([
                     'id_paciente' => $datos['id_paciente'],
-                    'id_medico' => $medicoActual,
+                    'id_medico' =>  $datos['id_medico'],
                     'comentario' => 'Somnolencia: Evaluar pase a UTI.',
                     'fecha' => (new DateTime('now')),
-                    'leida' => 0
                 ]);
-                $i=$i+1;
             }
-            Alertas_historial::create([
-                'id_paciente' => $datos['id_paciente'],
-                'id_medico' =>  $datos['id_medico'],
-                'comentario' => 'Somnolencia: Evaluar pase a UTI.',
-                'fecha' => (new DateTime('now')),
-            ]);
         }
 
         #REGLA 2 - REG O MALA MECANICA RESPIRATORIA
         if(isset($datos['mecanica'])){
-            if($datos['mecanica'] == 3 or $datos['mecanica'] == 2){
+            $result_obj = $obj->validar($datos['mecanica']);
+            if($result_obj){
                 if($datos['mecanica'] == 2)
                     $parametro = 'regular';
                 else{
@@ -98,7 +98,8 @@ class EvolucionesController extends Controller
 
         #REGLA 3 - FRECUENCIA RESPIRATORIA
         if($datos['frecuencia_respiratoria'] != null){
-            if($datos['frecuencia_respiratoria'] > 30){
+            $result_obj = $obj->validar_frecuencia($datos['frecuencia_respiratoria']);
+            if($result_obj){
 
                 #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
                 $paciente = $datos['id_paciente'];
@@ -137,7 +138,9 @@ class EvolucionesController extends Controller
         $formatted_dt2=Carbon::parse($end_date);
         $date_diff=$formatted_dt1->diffInDays($formatted_dt2);
 
-        if ($date_diff >= 10){
+        $result_obj = $obj->validar_fecha($end_date);
+
+        if ($result_obj){
 
             #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
             $paciente = $datos['id_paciente'];
@@ -166,7 +169,8 @@ class EvolucionesController extends Controller
 
         #REGLA 5 -
         if(isset($datos['valor_oxigeno'])){
-            if($datos['valor_oxigeno'] < 92){
+            $result_obj = $obj->validar_oxigeno($datos['valor_oxigeno']);
+            if($result_obj){
 
                 #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
                 $paciente = $datos['id_paciente'];
@@ -206,6 +210,7 @@ class EvolucionesController extends Controller
                 $anterior =  $saturacion[0]->valor_oxigeno;
                 $actual =  $datos['valor_oxigeno'] * 100 / $anterior;
                 $total = $anterior - $actual;
+                $result_obj = $obj->validar_porcentaje($datos['valor_oxigeno'],$anterior);
                 if ($total > 3){
                     #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
                     $paciente = $datos['id_paciente'];
