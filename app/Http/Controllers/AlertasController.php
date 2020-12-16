@@ -13,6 +13,7 @@ use App\Models\Sistema_has_paciente;
 use App\Models\Alertas_historial;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class AlertasController extends Controller
 {
@@ -30,7 +31,7 @@ class AlertasController extends Controller
         $affected = DB::table('alertas')
               ->where('id', $id)
               ->update(['leida' => 1]);
-        $alerta = Alertas::where('id_medico','=',$id)->where('leida','=',0)->get();
+        $alerta = Alertas::where('id_medico','=',Auth::user()->id)->where('leida','=',0)->get();
         return view('alertas.index',compact('alerta'));
     }
 

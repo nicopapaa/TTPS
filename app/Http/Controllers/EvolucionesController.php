@@ -23,8 +23,8 @@ class EvolucionesController extends Controller
         $datos=request()->except('_token');
 
 
-        return count($saturacion);
-        #Evoluciones::insert($datos);
+        #return count($saturacion);
+        Evoluciones::insert($datos);
 
         #REGLA 1 - SOMNOLENCIA
         if(isset($datos['somnolencia'])){
@@ -233,7 +233,7 @@ class EvolucionesController extends Controller
         ->select('pacientes.*')
         ->get();
         return view('pacientes.internadolist',compact('paciente'));
-        //Evoluciones::insert($request);
+       // Evoluciones::insert($request);
 
     }
 }
