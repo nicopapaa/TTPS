@@ -62,6 +62,8 @@
 <h3>Evolución del paciente</h3>
 <div name="form" style="margin:50px; background-color:white; padding:30px;">
     <h5 style="text-align:center;"><B>SIGNOS VITALES</B></h5>
+    <input hidden="true" value="1" name="id_paciente" id="id_paciente">
+    <input hidden="true" value="1" name="id_medico" id="id_medico">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Temperatura</label>

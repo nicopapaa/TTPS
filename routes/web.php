@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\InternacionController;
 use App\Http\Controllers\EvolucionesController;
+use App\Http\Controllers\AlertasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,5 +91,6 @@ Auth::routes();
     #evolucion
     Route::post('/cargarEvolucion', [EvolucionesController::class, 'cargarEvolucion']);
 
-
+    #alertas
+    Route::get('/alertas/{id}', [AlertasController::class, 'index']);
 });

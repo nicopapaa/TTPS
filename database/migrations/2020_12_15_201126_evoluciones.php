@@ -21,7 +21,7 @@ class Evoluciones extends Migration
             $table->String('sistolica')->nullable();
             $table->String('distolica')->nullable();
             $table->String('frecuencia_cardiaca')->nullable();
-            $table->String('frecuencia_resporatoria')->nullable();
+            $table->String('frecuencia_respiratoria')->nullable();
             $table->String('mecanica')->nullable();
             $table->String('oxigeno')->nullable();
             $table->String('tipo_oxigeno')->nullable();
