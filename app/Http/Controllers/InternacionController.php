@@ -10,6 +10,9 @@ use App\Models\Sistema_has_paciente;
 use App\Models\Internacions;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use DB;
+
 
 
 class InternacionController extends Controller
@@ -18,6 +21,40 @@ class InternacionController extends Controller
         $datos=request()->except('_token');
         Internacions::insert($datos);
         return view('pacientes.find');
+    }
+
+    public function dar_de_alta($id){
+        $internado=Internacions::findOrFail($id);
+        $now = Carbon::now()->toDateString();
+        $datos['f_egreso']=$now;
+        Internacions::find($internado['id'])->update($datos);
+
+        $paciente = DB::table('pacientes')
+            ->Join('internacions', 'pacientes.id', '=', 'internacions.id_paciente')
+            ->select('pacientes.*','internacions.*')
+            ->where('internacions.f_egreso','=',null)
+            ->get();
+        if (count($paciente) == 0)
+            $paciente= null;
+        
+        return view('pacientes.internadolist',compact('paciente'));
+    }
+
+    public function dar_de_obito($id){
+        $internado=Internacions::findOrFail($id);
+        $now = Carbon::now()->toDateString();
+        $datos['f_obito']=$now;
+        Internacions::find($internado['id'])->update($datos);
+
+        $paciente = DB::table('pacientes')
+            ->Join('internacions', 'pacientes.id', '=', 'internacions.id_paciente')
+            ->select('pacientes.*')
+            ->where('internacions.f_obito','<>','a')
+            ->get();
+        if (count($paciente) == 0)
+            $paciente= null;
+        return view('pacientes.internadolist',compact('paciente'));
+
     }
 
     public function listado(){

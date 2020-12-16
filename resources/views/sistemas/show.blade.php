@@ -34,8 +34,9 @@
         <div class="collapse" id="paciente">
         <h6>Pacientes</h6>
         @if($paciente == 0)
-                        No tengo paciente
-
+                   <div class="alert alert-secondary" role="alert" style="margin:30px; text-align:center;">
+                        No tiene alertas
+                    </div>
                     @else
             <div class="card card-body" style="width:1000px;">
                 <table class="table table-bordered" style="background-color:#FFFFFF;">

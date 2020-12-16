@@ -88,6 +88,9 @@ Auth::routes();
     Route::post('/altaInternacion', [InternacionController::class, 'altaInternacion']);
     Route::get('/pacienteInternado/{id}', [PagesController::class, 'datos']);
     Route::get('/evolucion/{id}', [InternacionController::class, 'evolucion']);
+    Route::get('darDeAltaPacienteInternado/{id}',[InternacionController::class, 'dar_de_alta']);
+    Route::get('darDeObitoPacienteInternado/{id}', [InternacionController::class, 'dar_de_obito']);
+
 
     #evolucion
     Route::post('/cargarEvolucion', [EvolucionesController::class, 'cargarEvolucion']);

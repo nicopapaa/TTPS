@@ -34,8 +34,13 @@ class PagesController extends Controller
     public function internados(){
         $paciente = DB::table('pacientes')
             ->Join('internacions', 'pacientes.id', '=', 'internacions.id_paciente')
-            ->select('pacientes.*')
+            ->select('pacientes.*','internacions.*')
+            ->where('internacions.f_egreso','=',null)
+            ->where('internacions.f_obito','=',null)
             ->get();
+        if (count($paciente) == 0)
+            $paciente= null;
+        
         return view('pacientes.internadolist',compact('paciente'));
     }
 
