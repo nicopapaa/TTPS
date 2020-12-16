@@ -4,7 +4,6 @@
 <script>
 
     function validar(){
-        alert('hola');
         if(document.getElementsByName("oxigeno")[0].checked){
             document.getElementsByName("tipo_oxigeno")[0].disabled = false;
             document.getElementsByName("valor_oxigeno")[0].disabled = false;
@@ -23,6 +22,15 @@
             document.getElementsByName("tos")[0].disabled = true;
             document.getElementsByName("disnea")[0].disabled = true;
             document.getElementsByName("estabilidad")[0].disabled = true;
+        }
+    }
+
+    function validar_pafi(){
+        if(document.getElementsByName("pafi")[0].checked){
+            document.getElementsByName("valor_pafi")[0].disabled = false;
+        }
+        else{
+            document.getElementsByName("valor_pafi")[0].disabled = true;
         }
     }
 
@@ -124,7 +132,7 @@
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="pafi" name="pafi" disabled="true">
+            <input type="checkbox" class="custom-control-input" id="pafi" onclick="javascript:validar_pafi();" name="pafi" disabled="true">
             <label class="custom-control-label" for="pafi">Pafi</label>
         </div>
     </div>

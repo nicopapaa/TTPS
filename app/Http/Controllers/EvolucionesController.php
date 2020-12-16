@@ -56,8 +56,12 @@ class EvolucionesController extends Controller
 
         #REGLA 2 - REG O MALA MECANICA RESPIRATORIA
         if(isset($datos['mecanica'])){
-            if($datos['mecanica'] == 3){
-
+            if($datos['mecanica'] == 3 or $datos['mecanica'] == 2){
+                if($datos['mecanica'] == 2)
+                    $parametro = 'regular';
+                else{
+                    $parametro = 'mala';
+                }
                 #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
                 $paciente = $datos['id_paciente'];
                 $medicos = Medico_has_paciente::select('id_medico')->where('id_paciente','=', $paciente)->get();
@@ -69,7 +73,7 @@ class EvolucionesController extends Controller
                     Alertas::create([
                         'id_paciente' => $datos['id_paciente'],
                         'id_medico' => $medicoActual,
-                        'comentario' => 'Mecánica respiratoria mala: Evaluar pase a UTI.',
+                        'comentario' => 'Mecánica respiratoria '.$parametro.': Evaluar pase a UTI.',
                         'fecha' => (new DateTime('now')),
                         'leida' => 0
                     ]);
@@ -78,7 +82,7 @@ class EvolucionesController extends Controller
                 Alertas_historial::create([
                     'id_paciente' => $datos['id_paciente'],
                     'id_medico' =>  $datos['id_medico'],
-                    'comentario' => 'Mecánica respiratoria mala: Evaluar pase a UTI.',
+                    'comentario' => 'Mecánica respiratoria '.$parametro.': Evaluar pase a UTI.',
                     'fecha' => (new DateTime('now')),
                 ]);
             }
@@ -193,7 +197,7 @@ class EvolucionesController extends Controller
             if (count($saturacion) > 0){
                 $anterior =  $saturacion[0]->valor_oxigeno;
                 $actual =  $datos['valor_oxigeno'] * 100 / $anterior;
-                $total = 92 - $actual;
+                $total = $anterior - $actual;
                 if ($total > 3){
                     #busco todos los medicos que tiene asignado el paciente y envio el alerta a c/u
                     $paciente = $datos['id_paciente'];
