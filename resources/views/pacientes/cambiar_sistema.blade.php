@@ -31,9 +31,6 @@
                 </button>
             </form>
         </div>
-        <a class="btn btn-primary" href="{{ url()->previous() }}">
-          Atras
-        </a>
     </div>
     <div class="col-sm">
     </div>
