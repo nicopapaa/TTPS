@@ -48,8 +48,8 @@ class InternacionController extends Controller
 
         $paciente = DB::table('pacientes')
             ->Join('internacions', 'pacientes.id', '=', 'internacions.id_paciente')
-            ->select('pacientes.*')
-            ->where('internacions.f_obito','<>','a')
+            ->select('pacientes.*','internacions.*')
+            ->where('internacions.f_obito','=',null)
             ->get();
         if (count($paciente) == 0)
             $paciente= null;

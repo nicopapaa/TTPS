@@ -35,7 +35,7 @@
         <h6>Pacientes</h6>
         @if($paciente == 0)
                    <div class="alert alert-secondary" role="alert" style="margin:30px; text-align:center;">
-                        No tiene alertas
+                        No pacientes registrados
                     </div>
                     @else
             <div class="card card-body" style="width:1000px;">
