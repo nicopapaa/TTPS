@@ -4,7 +4,6 @@
 <script>
 
     function validar(){
-        alert('hola');
         if(document.getElementsByName("oxigeno")[0].checked){
             document.getElementsByName("tipo_oxigeno")[0].disabled = false;
             document.getElementsByName("valor_oxigeno")[0].disabled = false;
@@ -23,6 +22,15 @@
             document.getElementsByName("tos")[0].disabled = true;
             document.getElementsByName("disnea")[0].disabled = true;
             document.getElementsByName("estabilidad")[0].disabled = true;
+        }
+    }
+
+    function validar_pafi(){
+        if(document.getElementsByName("pafi")[0].checked){
+            document.getElementsByName("valor_pafi")[0].disabled = false;
+        }
+        else{
+            document.getElementsByName("valor_pafi")[0].disabled = true;
         }
     }
 
@@ -124,7 +132,7 @@
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="pafi" name="pafi" disabled="true">
+            <input type="checkbox" class="custom-control-input" id="pafi" onclick="javascript:validar_pafi();" name="pafi" disabled="true">
             <label class="custom-control-label" for="pafi">Pafi</label>
         </div>
     </div>
@@ -136,25 +144,25 @@
 
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="prono" name="prono" disabled="true">
+            <input type="checkbox" class="custom-control-input" id="prono" name="prono" disabled="true" value="1">
             <label class="custom-control-label" for="prono">Prono</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="tos" name="tos" disabled="true">
+            <input type="checkbox" class="custom-control-input" id="tos" name="tos" disabled="true" value="1">
             <label class="custom-control-label" for="tos">Tos</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="disnea" name="disnea" disabled="true">
+            <input type="checkbox" class="custom-control-input" id="disnea" name="disnea" disabled="true" value="1">
             <label class="custom-control-label" for="disnea">Disnea</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="estabilidad" name="estabilidad" disabled="true">
+            <input type="checkbox" class="custom-control-input" id="estabilidad" name="estabilidad" disabled="true" value="1">
             <label class="custom-control-label" for="estabilidad">Estabilidad/Desaparicion de sintomas</label>
         </div>
     </div>
@@ -170,13 +178,13 @@
         </div>
         <div class="form-row">
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="anosmia" name="anosmia">
+                <input type="checkbox" class="custom-control-input" id="anosmia" name="anosmia" value="1">
                 <label class="custom-control-label" for="anosmia">Anosmia</label>
             </div>
         </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="disgeusia" name="disgeusia">
+            <input type="checkbox" class="custom-control-input" id="disgeusia" name="disgeusia" value="1">
             <label class="custom-control-label" for="disgeusia">Disgeusia</label>
         </div>
     </div>
@@ -186,31 +194,31 @@
 <h5 style="text-align:center;"><B>ESTUDIOS EN EL DIA DE HOY</B></h5>
     <div class="form-row">
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="rxtx" name="rxtx">
+                <input type="checkbox" class="custom-control-input" id="rxtx" name="rxtx" value="1">
                 <label class="custom-control-label" for="rxtx">RxTx</label>
             </div>
         </div>
         <div class="form-row">
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="tac" name="tac">
+                <input type="checkbox" class="custom-control-input" id="tac" name="tac" value="1">
                 <label class="custom-control-label" for="tac">Tac de torax</label>
             </div>
         </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="ecg" name="ecg">
+            <input type="checkbox" class="custom-control-input" id="ecg" name="ecg" value="1">
             <label class="custom-control-label" for="ecg">ECG</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="prc" name="prc">
+            <input type="checkbox" class="custom-control-input" id="prc" name="prc" value="1">
             <label class="custom-control-label" for="prc">PCR COVID</label>
         </div>
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="laboratorio" name="laboratorio">
+            <input type="checkbox" class="custom-control-input" id="laboratorio" name="laboratorio" value="1">
             <label class="custom-control-label" for="laboratorio">Laboratorio</label>
         </div>
     </div>
@@ -253,7 +261,7 @@
     </div>
     <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="tromboprofilaxis" name="tromboprofilaxis" onchange="javascript:validar_parte_cinco();">
+            <input type="checkbox" class="custom-control-input" id="tromboprofilaxis" value="1" name="tromboprofilaxis" onchange="javascript:validar_parte_cinco();">
             <label class="custom-control-label" for="tromboprofilaxis">Tromboprofilaxis</label>
         </div>
     </div>
@@ -264,7 +272,7 @@
 
         <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="dialisis" name="dialisis" onchange="javascript:validar_parte_cinco();">
+            <input type="checkbox" class="custom-control-input" id="dialisis" name="dialisis" onchange="javascript:validar_parte_cinco();" value="1">
             <label class="custom-control-label" for="dialisis">Dialisis</label>
         </div>
     </div>
@@ -275,7 +283,7 @@
 
         <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="gastrica" name="gastrica" onchange="javascript:validar_parte_cinco();">
+            <input type="checkbox" class="custom-control-input" id="gastrica" name="gastrica" onchange="javascript:validar_parte_cinco();" value="1">
             <label class="custom-control-label" for="gastrica">Proteccion gastrica</label>
         </div>
     </div>
@@ -286,7 +294,7 @@
 
         <div class="form-row">
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="dexamentasona" name="dexamentasona" onchange="javascript:validar_parte_cinco();">
+            <input type="checkbox" class="custom-control-input" id="dexamentasona" name="dexamentasona" onchange="javascript:validar_parte_cinco();" value="1">
             <label class="custom-control-label" for="dexamentasona">Dexamentasona</label>
         </div>
     </div>

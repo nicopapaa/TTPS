@@ -12,7 +12,7 @@
             <a href="/leer/{{$alertas->id}}"><button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button></a>
-            <h5 class="card-title">Paciente - {{ $alertas->id }}</h5>
+            <h5 class="card-title">Paciente - {{ $alertas->id_paciente }}</h5>
             <p class="card-text">{{ $alertas->comentario }}</p>
             <a href="/historial/{{ $alertas->id_paciente }}" class="card-link">Ver historial del paciente</a>
             </div>
