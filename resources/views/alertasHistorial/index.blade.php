@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
+<h5 style="margin:5px;">Historial de alertas</h5>
 @if(count($alerta) == 0)
     <div class="alert alert-secondary" role="alert" style="margin:30px; text-align:center;">
         No tiene alertas
@@ -14,7 +15,7 @@
             </button></a>
             <h5 class="card-title">Paciente - {{ $alertas->id }}</h5>
             <p class="card-text">{{ $alertas->comentario }}</p>
-            <a href="/historial/{{ $alertas->id_paciente }}" class="card-link">Ver historial del paciente</a>
+            <p class="card-text">{{ $alertas->fecha }}</p>
             </div>
         </div>
         @endforeach

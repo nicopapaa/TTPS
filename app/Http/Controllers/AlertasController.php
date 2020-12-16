@@ -10,13 +10,32 @@ use App\Models\Internacions;
 use App\Models\Evoluciones;
 use App\Models\Alertas;
 use App\Models\Sistema_has_paciente;
+use App\Models\Alertas_historial;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use DB;
 
 class AlertasController extends Controller
 {
-    public function index(){
-        return view('alertas.index', ['alertas' => Alertas::all()]);
+    public function index($id){
+        $alerta = Alertas::where('id_medico','=',$id)->where('leida','=',0)->get();
+        return view('alertas.index',compact('alerta'));
     }
 
+    public static function count($user){
+        $count = Alertas::where('id_medico','=',$user)->where('leida','=',0)->count();
+        return $count;
+    }
+
+    public function leer($id){
+        $affected = DB::table('alertas')
+              ->where('id', $id)
+              ->update(['leida' => 1]);
+        $alerta = Alertas::where('id_medico','=',$id)->where('leida','=',0)->get();
+        return view('alertas.index',compact('alerta'));
+    }
+
+    public function historial($id){
+        $alerta = Alertas_historial::where('id_paciente','=',$id)->get();
+        return view('alertasHistorial.index',compact('alerta'));
+    }
 }

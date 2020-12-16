@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Alertas extends Migration
+class AlertasHistorial extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class Alertas extends Migration
      */
     public function up()
     {
-        Schema::create('alertas', function (Blueprint $table) {
+        Schema::create('alertas_historials', function (Blueprint $table) {
             $table->id();
             $table->String('id_paciente');
             $table->String('id_medico');
             $table->String('comentario');
-            $table->Boolean('leida');
             $table->date('fecha');
             $table->timestamps();
         });

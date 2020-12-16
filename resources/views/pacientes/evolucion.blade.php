@@ -62,8 +62,8 @@
 <h3>Evolución del paciente</h3>
 <div name="form" style="margin:50px; background-color:white; padding:30px;">
     <h5 style="text-align:center;"><B>SIGNOS VITALES</B></h5>
-    <input hidden="true" value="1" name="id_paciente" id="id_paciente">
-    <input hidden="true" value="1" name="id_medico" id="id_medico">
+    <input hidden="true" value="{{$paciente}}" name="id_paciente" id="id_paciente">
+    <input hidden="true" value="{{Auth::user()->id}}" name="id_medico" id="id_medico">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Temperatura</label>
@@ -164,7 +164,7 @@
 <h5 style="text-align:center;"><B>OTROS SINTOMAS</B></h5>
     <div class="form-row">
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="somnolencia" name="somnolencia">
+                <input type="checkbox" class="custom-control-input" id="somnolencia" name="somnolencia" value='1'>
                 <label class="custom-control-label" for="somnolencia">Somnolencia</label>
             </div>
         </div>
@@ -223,7 +223,7 @@
         <div class="form-group col-md-4">
             <label for="inputState">Tipo de alimentación</label>
             <select id="inputState" class="form-control" name="tipo_alimentacion" id="tipo_alimentacion">
-                <option selected>Selecionar</option>
+                <option value="0" selected>Selecionar</option>
                 <option value="1">Oral</option>
                 <option value="2">Enteral</option>
                 <option value="3">Parenteral</option>

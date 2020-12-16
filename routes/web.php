@@ -93,4 +93,6 @@ Auth::routes();
 
     #alertas
     Route::get('/alertas/{id}', [AlertasController::class, 'index']);
+    Route::get('/leer/{id}', [AlertasController::class, 'leer']);
+    Route::get('/historial/{id}', [AlertasController::class, 'historial']);
 });

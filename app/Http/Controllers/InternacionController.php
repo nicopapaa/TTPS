@@ -9,6 +9,7 @@ use App\Models\Relacion;
 use App\Models\Sistema_has_paciente;
 use App\Models\Internacions;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 
 
 class InternacionController extends Controller
@@ -46,7 +47,8 @@ class InternacionController extends Controller
         return view('pacientes.find');
     }
 
-    public function evolucion(){
-        return view('pacientes.evolucion');
+    public function evolucion($id){
+        $paciente = $id;
+        return view('pacientes.evolucion',compact('paciente'));
     }
 }
