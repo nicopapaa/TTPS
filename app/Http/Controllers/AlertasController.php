@@ -18,8 +18,13 @@ use Illuminate\Support\Facades\Auth;
 class AlertasController extends Controller
 {
     public function index($id){
-        $alerta = Alertas::where('id_medico','=',$id)->where('leida','=',0)->get();
-        return view('alertas.index',compact('alerta'));
+        $paciente = DB::table('pacientes')
+            ->Join('alertas', 'pacientes.id', '=', 'alertas.id_paciente')
+            ->select('pacientes.*','alertas.*')
+            ->where('leida','=',0)
+            ->where('id_medico','=',$id)
+            ->get();
+        return view('alertas.index',compact('paciente'));
     }
 
     public static function count($user){
