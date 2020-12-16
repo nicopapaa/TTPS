@@ -75,23 +75,23 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Temperatura</label>
-            <input type="number" class="form-control" id="temperatura" name="temperatura">
+            <input type="number" class="form-control" id="temperatura" placeholder="Temperatura" name="temperatura">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">TA sistolica</label>
-            <input type="number" class="form-control" id="sistolica" name="sistolica">
+            <input type="number" class="form-control" id="sistolica" placeholder="Sistolica" name="sistolica">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">TA distolica</label>
-            <input type="number" class="form-control" id="distolica" name="distolica">
+            <input type="number" class="form-control" id="distolica" placeholder="Distolica" name="distolica">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">Frecuencia cardiaca</label>
-            <input type="number" class="form-control" id="frecuencia_cardiaca" name="frecuencia_cardiaca">
+            <input type="number" class="form-control" id="frecuencia_cardiaca" placeholder="Frecuencia Cardia" name="frecuencia_cardiaca">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword4">Frecuencia respiratoria</label>
-            <input type="number" class="form-control" id="frecuencia_respiratoria" name="frecuencia_respiratoria">
+            <input type="number" class="form-control" id="frecuencia_respiratoria" placeholder="Frecuencia Respiratoria" name="frecuencia_respiratoria">
         </div>
     </div>
 </div>
@@ -127,7 +127,7 @@
 
         <div class="form-group col-md-6">
             <label for="inputPassword4">Valor</label>
-            <input type="number" class="form-control" id="valor_oxigeno" name="valor_oxigeno" disabled="true">
+            <input type="number" class="form-control" id="valor_oxigeno" placeholder="Valor" name="valor_oxigeno" disabled="true">
         </div>
     </div>
     <div class="form-row">
@@ -138,7 +138,7 @@
     </div>
         <div class="form-group col-md-4">
             <label for="inputPassword4">Valor pafi</label>
-            <input type="number" class="form-control" id="valor_pafi" name="valor_pafi" disabled="true">
+            <input type="number" class="form-control" id="valor_pafi" placeholder="Valor Pafi" name="valor_pafi" disabled="true">
         </div>
 
 
@@ -240,7 +240,7 @@
     </div>
     <div class="custom-control">
         <label for="inputPassword4">Nota alimentaria</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" id="nota_alimentacion" name="nota_alimentacion"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" id="nota_alimentacion" placeholder="Escriba su nota alimentaria" name="nota_alimentacion"></textarea>
     </div>
     <br>
 
@@ -248,15 +248,15 @@
     <div class="form-row">
         <div class="form-group col-md-3">
             <label for="inputPassword4">Farmaco</label>
-            <input type="number" class="form-control" id="farmaco" name="farmaco">
+            <input type="number" class="form-control" id="farmaco" placeholder="Ingrese un numero" name="farmaco">
         </div>
         <div class="form-group col-md-3">
             <label for="inputPassword4">Dosis</label>
-            <input type="number" class="form-control" id="dosis" name="dosis">
+            <input type="number" class="form-control" id="dosis" placeholder="Ingrese un numero" name="dosis">
         </div>
         <div class="form-group col-md-3">
             <label for="inputPassword4">Numero de dias</label>
-            <input type="number" class="form-control" id="dias" name="dias">
+            <input type="number" class="form-control" id="dias" placeholder="Ingrese un numero" name="dias">
         </div>
     </div>
     <div class="form-row">
@@ -267,7 +267,7 @@
     </div>
         <div class="form-group col-md-4">
             <label for="inputPassword4">Valor Tromboprofilaxis</label>
-            <input type="number" class="form-control" id="valor_tromboprofilaxis" name="valor_tromboprofilaxis" disabled="true">
+            <input type="number" class="form-control" id="valor_tromboprofilaxis" placeholder="Valor Tromboprofilaxis" name="valor_tromboprofilaxis" disabled="true">
         </div>
 
         <div class="form-row">
@@ -278,7 +278,7 @@
     </div>
         <div class="form-group col-md-4">
             <label for="inputPassword4">Valor dialisis</label>
-            <input type="number" class="form-control" id="inputPassword4" name="valor_dialisis" disabled="true">
+            <input type="number" class="form-control" id="inputPassword4" placeholder="Valor Dialisis" name="valor_dialisis" disabled="true">
         </div>
 
         <div class="form-row">
@@ -289,7 +289,7 @@
     </div>
         <div class="form-group col-md-4">
             <label for="inputPassword4">Valor protección gastrica</label>
-            <input type="number" class="form-control" id="inputPassword4" name="valor_gastrica" disabled="true">
+            <input type="number" class="form-control" id="inputPassword4" placeholder="Valor Gastrica" name="valor_gastrica" disabled="true">
         </div>
 
         <div class="form-row">
@@ -300,14 +300,14 @@
     </div>
         <div class="form-group col-md-4">
             <label for="inputPassword4">Valor Dexamentasona</label>
-            <input type="number" class="form-control" id="inputPassword4" name="valor_dexamentasona" disabled="true">
+            <input type="number" class="form-control" id="inputPassword4" placeholder="Valor Dexamentasona" name="valor_dexamentasona" disabled="true">
         </div>
 </div>
 
 <div name="form" style="margin:50px; background-color:white; padding:30px;" >
     <h5 style="text-align:center;"><B>OBSERVACIONES</B></h5>
     <div class="form-row">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="observaciones"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Indique si hay alguna observacion" name="observaciones"></textarea>
     </div>
 </div>
 <button type="submit" class="btn btn-primary">Cargar evolución</button>
