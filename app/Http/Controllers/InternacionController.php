@@ -19,7 +19,17 @@ class InternacionController extends Controller
 {
     public function altaInternacion(Request $request){
         $datos=request()->except('_token');
+        #return $datos['id_paciente'];
         Internacions::insert($datos);
+        Sistema_has_paciente::create([
+            'id_sistema' => 2,
+            'id_user' => $datos['id_paciente'],
+        ]);
+
+        $sistema = Sistema::where('id','=',2)->get();
+        $camas_usadas = $sistema[0]['camas_usadas'];
+        $valor['camas_usadas'] = $camas_usadas + 1;
+        Sistema::where('id','=',2)->update($valor);
         return view('pacientes.find');
     }
 
@@ -36,7 +46,7 @@ class InternacionController extends Controller
             ->get();
         if (count($paciente) == 0)
             $paciente= null;
-        
+
         return view('pacientes.internadolist',compact('paciente'));
     }
 

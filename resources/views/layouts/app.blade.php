@@ -19,8 +19,9 @@ use App\Http\Controllers\AlertasController;
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -33,7 +34,6 @@ use App\Http\Controllers\AlertasController;
 </head>
 <body style="background-color:#F2E3E3;">
     <div id="app">
-
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #777777;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -102,15 +102,14 @@ use App\Http\Controllers\AlertasController;
                                     </form>
                                 </div>
                             </li>
-
+                        @endguest
                     </ul>
                 </div>
             </div>
 
         </nav>
-        <div id="panelsucces"> {{ session('success') }} </div>
-<div id="panelerror">{{ session('error') }}</div>
-@endguest
+
+
         <main class="py-4">
             @yield('content')
         </main>
@@ -118,35 +117,3 @@ use App\Http\Controllers\AlertasController;
 </body>
 
 </html>
-
-<style>
-#panelsucces {
-  padding: 10px !important;
-  text-align: center !important;
-  background-color: #0DEE0C !important;
-  color:#ffffff !important;
-  font-size:20px !important;
-  z-index:15 !important;
-  display:none;
-}
-#panelerror {
-  padding: 10px !important;
-  display: none !important;
-  text-align: center !important;
-  background-color: red !important;
-  color:#ffffff !important;
-  font-size:18px !important;
-  display:none;
-}
-</style>
-
-<script>
-@if(Session::has('success'))
-    $("#panelsucces").show(1000).delay(3000);
-    $("#panelsucces").hide(2000);
-@endif;
-@if(Session::has('error'))
-    $("#panelerror").show(1000).delay(3000);
-    $("#panelerror").hide(2000);
-@endif;
-</script>

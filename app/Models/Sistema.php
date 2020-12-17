@@ -9,5 +9,5 @@ class Sistema extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['camas_totales'];
+    protected $fillable = ['camas_totales','$camas_usadas'];
 }
