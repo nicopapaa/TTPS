@@ -57,7 +57,7 @@
             <div class="col">
                 <h6>Descripción</h6>
                 <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="descripcion" id="descripcion" placeholder="Complete con información"></textarea>
+                    <textarea required class="form-control" id="exampleFormControlTextarea1" rows="10" name="descripcion" id="descripcion" placeholder="Complete con información"></textarea>
                 </div>
                 <a><button type="submit" class="btn btn-primary" style="background-color:#F0B8B8; border-color:#F0B8B8;">Dar alta internación</button></a>
             </div>

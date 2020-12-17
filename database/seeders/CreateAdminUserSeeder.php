@@ -228,31 +228,9 @@ class CreateAdminUserSeeder extends Seeder
         #creo el rol jefe de Medico
         $roleMedico = Role::create([
             'id' => 3,
-            'name' => 'Médico'
+            'name' => 'Medico'
         ]);
 
-        #asigno role de jefes
-        $jefe1 = assignRole([$roleJefe->id]);
-        $jefe2 = assignRole([$roleJefe->id]);
-        $jefe3 = assignRole([$roleJefe->id]);
-        $jefe4 = assignRole([$roleJefe->id]);
-        $jefe5 = assignRole([$roleJefe->id]);
 
-        #asigno rol de medicos
-        $medico1->assignRole([$roleMedico->id]);
-        $medico2->assignRole([$roleMedico->id]);
-        $medico3->assignRole([$roleMedico->id]);
-        $medico4->assignRole([$roleMedico->id]);
-        $medico5->assignRole([$roleMedico->id]);
-        $medico6->assignRole([$roleMedico->id]);
-        $medico7->assignRole([$roleMedico->id]);
-        $medico8->assignRole([$roleMedico->id]);
-        $medico9->assignRole([$roleMedico->id]);
-        $medico10->assignRole([$roleMedico->id]);
-        $medico11->assignRole([$roleMedico->id]);
-        $medico12->assignRole([$roleMedico->id]);
-        $medico13->assignRole([$roleMedico->id]);
-        $medico14->assignRole([$roleMedico->id]);
-        $medico15->assignRole([$roleMedico->id]);
     }
 }

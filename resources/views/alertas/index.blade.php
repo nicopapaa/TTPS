@@ -1,5 +1,8 @@
+
 @extends('layouts.app')
+
 @section('content')
+
 
 @if(count($alerta) == 0)
     <div class="alert alert-secondary" role="alert" style="margin:30px; text-align:center;">

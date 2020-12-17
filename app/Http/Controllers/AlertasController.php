@@ -32,7 +32,8 @@ class AlertasController extends Controller
               ->where('id', $id)
               ->update(['leida' => 1]);
         $alerta = Alertas::where('id_medico','=',Auth::user()->id)->where('leida','=',0)->get();
-        return view('alertas.index',compact('alerta'));
+        #return view('alertas.index',compact('alerta'))->with('success','Prueba de mensaje');
+        return redirect('/alertas/'.Auth::user()->id)->with('success','El alerta fue marcada como leida');
     }
 
     public function historial($id){
