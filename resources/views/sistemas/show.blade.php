@@ -10,14 +10,20 @@
         <h3>Sistema:  {{ $s->nombre }} </h3>
         <br>
         <h6>Camas Usadas: {{ $s->camas_usadas }}</h6>
-        <h6>Camas Libres: {{ $s->camas_totales -  $s->camas_usadas}}</h6>
-        <h6>Camas Totales: {{ $s->camas_totales }}</h6>
+        @if($s->id ==2)
+        <h6>Camas Totales: Infinito</h6>
+        @else
+            <h6>Camas Libres: {{ $s->camas_totales -  $s->camas_usadas}}</h6>
+            <h6>Camas Totales: {{ $s->camas_totales }}</h6>
+        @endif
         <h6>Camas ocupadas: {{ $s->camas_usadas * 100 / $s->camas_totales }} % </h6>
         <form class="form-inline" action="/sistemas/update_camas" method="post">
         @csrf
+            @if($s->id <> 2)
             <input type="text" class="form-control mr-sm-2" value="{{ $s->camas_totales }}" id="inlineFormInputName2" name="camas_totales">
             <input type="text" class="form-control mr-sm-2" value="{{ $s->id }}" id="inlineFormInputName2" name="sistema" hidden="true">
             <button type="submit" class="btn btn-primary my-1">Actualizar camas</button>
+            @endif
         </form>
         <br>
         <p>

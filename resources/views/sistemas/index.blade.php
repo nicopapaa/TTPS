@@ -12,20 +12,36 @@
         </tr>
         @foreach($sistema as $sistemas)
         <tr>
-            <td>{{ $sistemas->id }}</td>
-            <td>{{ $sistemas->nombre }}</td>
-            <td>{{ $sistemas->camas_totales }}</td>
+        <td>{{ $sistemas->id }}</td>
+        <td>{{ $sistemas->nombre }}</td>
+        <td>
+        <?php
+            $id = $sistemas->id;
+            $camas = $sistemas->camas_totales;
+            if ($id == 2){
+                echo "Infinito";
+            }
+            else{
+                echo $camas;
+            }
+            ?>
+            </td>
             <td>{{ $sistemas->camas_usadas }}</td>
             <td> %
             <?php
-            $v1 = $sistemas->camas_totales;
-            $v2 = $sistemas->camas_usadas;
+            if ($id <> 2){
+                $v1 = $sistemas->camas_totales;
+                $v2 = $sistemas->camas_usadas;
 
-            if($v2 == 0){
-               echo $v2;
+                if($v2 == 0){
+                echo $v2;
+                }
+                else{
+                    echo ($v2 * 100 / $v1);
+                }
             }
             else{
-                echo ($v2 * 100 / $v1);
+                echo "-";
             }
 
             ?></td>
