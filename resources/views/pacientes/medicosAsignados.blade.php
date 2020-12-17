@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+@if ($medico == 0)
+      <div class="alert alert-secondary" role="alert" style="margin:30px; text-align:center;">
+          No hay medicos registrados para el paciente
+      </div>
+    @else
   <div class="row">
     <div class="col-sm">
     </div>
@@ -26,7 +31,7 @@
                     </tr>
                     @endforeach
                 </table>
-
+            @endif
                 <h6>Asiganar nuevo médico</h6>
                 <form class="form-inline" action="/asignarMedicos" method="post">
                     @csrf
@@ -41,16 +46,13 @@
                         </div>
                     <input type="text" class="form-control mr-sm-2" value="{{ $paciente }}" id="inlineFormInputName2" name="id_paciente" hidden="true">
                     <button type="submit" class="btn btn-primary my-1">Asignar</button>
-                </form>
-              </div>
+                    </form>         
+              </div>            
             </div>
           </div>
         </div>
-
     </div>
-    <a class="btn btn-primary" href="{{ url()->previous() }}">
-          Atras
-        </a>
+   
     <div class="col-sm">
     </div>
   </div>

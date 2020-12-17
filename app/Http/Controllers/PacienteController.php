@@ -19,16 +19,14 @@ class PacienteController extends Controller
 
         if (!is_null($medicosPaciente['datos'])){
             $count = count($medicosPaciente['datos']);
+            if ($count == 0)
+                $medicos=0;
             $i = 0;
             while($i < $count){
                 $medicos[$i] = User::find($medicosPaciente['datos'][$i]->id_medico);
                 $i++;
             }
         }
-        else{
-            $medicos = 0;
-        }
-
         #$users1 = DB::table('medico_has_pacientes')
          #   ->leftjoin('users', 'medico_has_pacientes.id_medico', '=', 'users.id')
           #  ->select('users.id')
