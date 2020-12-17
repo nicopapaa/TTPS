@@ -7,9 +7,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">DNI</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+
         </tr>
         @foreach ($medicos as $medico)
         <tr>
@@ -17,16 +15,6 @@
             <td>{{$medico->name}}</td>
             <td>{{$medico->apellido}}</td>
             <td>{{$medico->dni}}</td>
-            <td>
-                <a class="btn btn-primary" href="" style="background-color:#F0B8B8; border-color:#F0B8B8;">
-                        Ver datos
-                </a>
-            </td>
-            <td>
-                <a class="btn btn-primary" href="" style="background-color:#F0B8B8; border-color:#F0B8B8;">
-                        Cambiar de sistema
-                </a>
-            </td>
         </tr>
         @endforeach
   </table>
