@@ -3,21 +3,20 @@
 
 @section('content')
 
-
-@if(count($alerta) == 0)
+@if(count($paciente) == 0)
     <div class="alert alert-secondary" role="alert" style="margin:30px; text-align:center;">
         No tiene alertas
     </div>
 @else
-    @foreach ( $alerta as $alertas)
+    @foreach ( $paciente as $pacientes)
         <div class="card"style="margin:50px;">
             <div class="card-body">
-            <a href="/leer/{{$alertas->id}}"><button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <a href="/leer/{{$pacientes->id}}"><button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button></a>
-            <h5 class="card-title">Paciente - {{ $alertas->id_paciente }}</h5>
-            <p class="card-text">{{ $alertas->comentario }}</p>
-            <a href="/historial/{{ $alertas->id_paciente }}" class="card-link">Ver historial del paciente</a>
+            <h5 class="card-title">Paciente - {{ $pacientes->nombre }} {{ $pacientes->apellido}}</h5>
+            <p class="card-text">{{ $pacientes->comentario }}</p>
+            <a href="/historial/{{ $pacientes->id_paciente }}" class="card-link">Ver historial del paciente</a>
             </div>
         </div>
         @endforeach

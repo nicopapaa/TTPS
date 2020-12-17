@@ -27,7 +27,7 @@ class CreatePacientesTable extends Migration
             $table->String('contacto_apellido');
             $table->String('contacto_parentesco');
             $table->String('contacto_telefono');
-            $table->String('id_historia_clinica');
+            $table->String('antecedentes');
             $table->timestamps();
         });
     }
