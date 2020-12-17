@@ -7,6 +7,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Camas totales</th>
             <th scope="col">Camas usadas</th>
+            <th scope="col">Ocupado</th>
             <th scope="col">&nbsp;</th>
         </tr>
         @foreach($sistema as $sistemas)
@@ -15,6 +16,19 @@
             <td>{{ $sistemas->nombre }}</td>
             <td>{{ $sistemas->camas_totales }}</td>
             <td>{{ $sistemas->camas_usadas }}</td>
+            <td> %
+            <?php
+            $v1 = $sistemas->camas_totales;
+            $v2 = $sistemas->camas_usadas;
+
+            if($v2 == 0){
+               echo $v2;
+            }
+            else{
+                echo ($v2 * 100 / $v1);
+            }
+
+            ?></td>
             <td>
                 <a class="btn btn-primary" href="{{ url('/sistemas/show/'.$sistemas->id )}}" style="background-color:#F0B8B8; border-color:#F0B8B8;">
                         Ver datos
