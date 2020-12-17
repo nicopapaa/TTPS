@@ -42,21 +42,21 @@ class ExampleTest extends TestCase
 
         #regla4
 
-        $response = $obj->validar_fecha('2020-12-26');
+        $response = $obj->validar_fecha('2021-12-26');
         $this->assertEquals(true,$response);
 
         $response = $obj->validar_fecha('2020-12-22');
         $this->assertEquals(false,$response);
 
         #regla5
-        $response = $obj->validar_fecha(92);
+        $response = $obj->validar_oxigeno(92);
         $this->assertEquals(false,$response);
 
-        $response = $obj->validar_fecha(93);
+        $response = $obj->validar_oxigeno(100);
         $this->assertEquals(false,$response);
 
-        $response = $obj->validar_fecha(91);
-        $this->assertEquals(false,$response);
+        $response = $obj->validar_oxigeno(91);
+        $this->assertEquals(true,$response);
 
         #regla6
         $response = $obj->validar_porcentaje(12,10);

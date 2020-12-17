@@ -37,7 +37,7 @@ class Evaluacion
         $formatted_dt1=Carbon::parse($now);
         $formatted_dt2=Carbon::parse($end_date);
         $date_diff=$formatted_dt1->diffInDays($formatted_dt2);
-        if($date_diff == 10){
+        if($date_diff > 10){
             return true;
         }
         else{
@@ -45,7 +45,7 @@ class Evaluacion
         }
     }
 
-    public function validar_oxigeno($parm){
+    public function validar_oxigeno($param){
         if($param < 92){
             return true;
         }
